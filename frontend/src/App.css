@@ -1,0 +1,229 @@
+/* App.css – Estilos globales para la Todo App */
+
+/* Reset básico y tipografía */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f7fc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Contenedor principal (el div de App) */
+#root > div {
+  background: #ffffff;
+  max-width: 600px;
+  width: 100%;
+  padding: 2rem 1.5rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin: 1.5rem;
+}
+
+/* Título */
+h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 1.8rem;
+  letter-spacing: -0.5px;
+}
+
+/* ---------- TodoForm ---------- */
+form {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+form input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e0e7ef;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+  background: #fafcff;
+}
+
+form input:focus {
+  border-color: #5b9bd5;
+  box-shadow: 0 0 0 4px rgba(91, 155, 213, 0.15);
+}
+
+form button {
+  padding: 0.75rem 1.5rem;
+  background: #5b9bd5;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+form button:hover {
+  background: #4a89c0;
+}
+
+form button:active {
+  transform: scale(0.96);
+}
+
+/* ---------- TodoList ---------- */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* Mensaje "No hay tareas" */
+ul:empty + p,
+p:only-child {
+  text-align: center;
+  color: #8899aa;
+  font-style: italic;
+  padding: 2rem 0;
+  background: #f8faff;
+  border-radius: 12px;
+  border: 2px dashed #dce4ec;
+}
+
+/* ---------- TodoItem ---------- */
+li {
+  background: #ffffff;
+  border: 1px solid #eef3f8;
+  border-radius: 14px;
+  padding: 0.5rem 1rem 0.5rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+li:hover {
+  border-color: #cbd8e6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* Cada TodoItem es un div dentro del li */
+li > div {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Título de la tarea */
+li span:first-child {
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1e2a36;
+  word-break: break-word;
+  min-width: 120px;
+}
+
+/* Select de estado */
+li select {
+  padding: 0.4rem 0.8rem;
+  border: 1.5px solid #dce4ec;
+  border-radius: 10px;
+  background: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #1e2a36;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235b9bd5' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+  padding-right: 2rem;
+  appearance: none;
+  min-width: 110px;
+}
+
+li select:focus {
+  border-color: #5b9bd5;
+  box-shadow: 0 0 0 3px rgba(91, 155, 213, 0.15);
+}
+
+/* Colores para cada estado (opcional) */
+li select option[value="pendiente"] { color: #e67e22; }
+li select option[value="completada"] { color: #27ae60; }
+li select option[value="cancelada"] { color: #e74c3c; }
+
+/* Botón Borrar */
+li button {
+  padding: 0.4rem 1rem;
+  background: #fee9e7;
+  color: #c0392b;
+  border: 1px solid #f5d0cc;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+li button:hover {
+  background: #fcd4cf;
+  border-color: #e6b4ae;
+}
+
+li button:active {
+  transform: scale(0.94);
+}
+
+/* Ajustes responsivos */
+@media (max-width: 500px) {
+  #root > div {
+    padding: 1.5rem 1rem;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  form button {
+    width: 100%;
+  }
+
+  li > div {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  li span:first-child {
+    min-width: unset;
+    text-align: center;
+  }
+
+  li select {
+    width: 100%;
+    background-position: right 0.8rem center;
+  }
+
+  li button {
+    width: 100%;
+    text-align: center;
+  }
+}
