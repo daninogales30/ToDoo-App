@@ -127,5 +127,5 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 CORS_ALLOWED_ORIGINS = [
-    "https://todoo-daninogales.onrender.com",  # lo cambias cuando tengas la URL
+    "https://todoo-app-web.onrender.com",  # lo cambias cuando tengas la URL
 ]
