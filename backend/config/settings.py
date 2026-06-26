@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 import os
+from distutils.command.config import config
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,6 +25,14 @@ SECRET_KEY = 'django-insecure-y#%lfbv$tu#f3u#-&t4^ko&$)q$lr4p6c54q)$4kesxb974(fs
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+]
+
+if not DEBUG:
+    ALLOWED_HOSTS.append(config("RENDER_EXTERNAL_HOSTNAME", default=""))
 
 
 # Application definition
