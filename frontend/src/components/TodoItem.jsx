@@ -52,8 +52,12 @@ export function TodoItem({ todo, onChanged }) {
                     </option>
                 ))}
             </select>
-            <button onClick={handleEdit}>Editar</button>
-            <button onClick={handleDelete}>Borrar</button>
+            {!editando && (
+                <div>
+                    <button onClick={handleEdit}>Editar</button>
+                    <button onClick={handleDelete}>Borrar</button>
+                </div>
+            )}
 
             {editando && (
                 <div>
