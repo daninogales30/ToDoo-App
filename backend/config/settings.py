@@ -27,12 +27,9 @@ SECRET_KEY = 'django-insecure-y#%lfbv$tu#f3u#-&t4^ko&$)q$lr4p6c54q)$4kesxb974(fs
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
+    "todoo-app-23ot.onrender.com"
 ]
 
-if not DEBUG:
-    ALLOWED_HOSTS.append(config("RENDER_EXTERNAL_HOSTNAME", default=""))
 
 
 # Application definition
